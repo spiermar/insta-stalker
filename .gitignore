@@ -34,4 +34,5 @@ nosetests.xml
 .project
 .pydevproject
 .Python
-python2.7
+include
+insta-stalker.cfg
