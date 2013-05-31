@@ -1,3 +1,6 @@
+#!/usr/bin/python
+
+import sysm getopt
 import calendar
 import urlparse
 import ConfigParser
@@ -6,16 +9,13 @@ from instagram.client import InstagramAPI
 from instagram.helper import datetime_to_timestamp
 from instagram.helper import timestamp_to_datetime
 
+def get_tag_media(tag_name, from_time, to_time)
 config = ConfigParser.ConfigParser()
 config.read('insta-stalker.cfg')
 
 access_token = config.get('insta-stalker', 'access_token')
-
 api = InstagramAPI(access_token=access_token)
 
-tag_name = 'encorebeachclub'
-from_time = 1348876800000
-to_time = 1349395200000
 count = 20
 
 print 'from_time: ' + str(timestamp_to_datetime(from_time / 1000))
@@ -40,3 +40,12 @@ while (max_id > from_time):
 	max_id = int(urlparse.parse_qs(parsednext.query)['max_tag_id'][0])
 
 	print 'max_tag_id: ' + str(max_id) + ' (' + str(timestamp_to_datetime(max_id / 1000)) + ')'
+
+def main(argv):
+	tag_name = 'encorebeachclub'
+	from_time = 1348876800000
+	to_time = 1349395200000
+	get_tag_media(tag_name, from_time, to_time)
+
+if __name__ == "__main__":
+   main(sys.argv[1:])
