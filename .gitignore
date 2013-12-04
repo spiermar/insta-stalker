@@ -36,3 +36,5 @@ nosetests.xml
 .Python
 include
 insta-stalker.cfg
+.idea
+*.iml
